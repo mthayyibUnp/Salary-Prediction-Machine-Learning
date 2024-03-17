@@ -8,14 +8,26 @@ Dalam konteks proyek ini, fokus utama adalah pada pembuatan model machine learni
 
 ### Latar Belakang
 
-Penggajian karyawan merupakan salah satu aspek penting dalam pengelolaan sumber daya manusia di sebuah perusahaan. Penentuan gaji yang tepat dapat memengaruhi kepuasan dan motivasi karyawan, serta memberikan dampak pada kinerja dan produktivitas perusahaan secara keseluruhan. Oleh karena itu, pengembangan model prediksi gaji menjadi relevan dalam mendukung pengambilan keputusan yang akurat dalam manajemen sumber daya manusia.
+Penggajian karyawan merupakan salah satu aspek penting dalam pengelolaan sumber daya manusia di sebuah perusahaan. Penentuan gaji yang tepat dapat memengaruhi kepuasan dan motivasi karyawan, serta memberikan dampak pada kinerja dan produktivitas perusahaan secara keseluruhan[1]. Oleh karena itu, pengembangan model prediksi gaji menjadi relevan dalam mendukung pengambilan keputusan yang akurat dalam manajemen sumber daya manusia.
 
 ### Masalah dan Urgensi
 
-Masalah yang dihadapi adalah bagaimana menghasilkan prediksi gaji yang akurat berdasarkan karakteristik individu karyawan. Urgensinya adalah untuk meningkatkan efisiensi dalam proses penggajian, memastikan keadilan dalam penetapan gaji, serta mendukung pengambilan keputusan strategis dalam pengelolaan sumber daya manusia.
+Masalah yang dihadapi adalah bagaimana menghasilkan prediksi gaji yang akurat berdasarkan karakteristik individu karyawan[1]. Urgensinya adalah untuk meningkatkan efisiensi dalam proses penggajian, memastikan keadilan dalam penetapan gaji, serta mendukung pengambilan keputusan strategis dalam pengelolaan sumber daya manusia.
 
 
 ## Business Understanding
+
+### Problem Statements
+
+Dalam proyek ini, kami bertujuan untuk menjawab dua pernyataan masalah berikut:
+1. Bagaimana memprediksi gaji seseorang berdasarkan fitur-fitur yang diberikan?
+2. Faktor-faktor apa saja yang memengaruhi besaran gaji seseorang?
+
+### Goals
+
+Tujuan proyek ini adalah:
+1. Membangun model machine learning yang dapat memprediksi gaji berdasarkan fitur-fitur yang diberikan.
+2. Mengidentifikasi faktor-faktor yang memiliki pengaruh signifikan terhadap besaran gaji.
 
 #### Latar Belakang
 
@@ -35,7 +47,6 @@ Penerapan model machine learning untuk memprediksi gaji memiliki dampak yang lua
 
 3. **Peningkatan Kepuasan Karyawan**: Dengan memiliki proses penggajian yang transparan dan terukur, karyawan akan merasa lebih dihargai dan diakui atas kontribusi mereka. Hal ini dapat meningkatkan tingkat kepuasan karyawan, yang pada gilirannya dapat berkontribusi pada produktivitas dan retensi karyawan yang lebih tinggi.
 
-
 #### Contoh Penggunaan Hasil Prediksi Gaji dalam Pengambilan Keputusan Bisnis
 
 Misalnya, sebuah perusahaan teknologi sedang melakukan evaluasi kinerja karyawan dan merencanakan peningkatan gaji tahunan. Dengan menggunakan model prediksi gaji, perusahaan dapat:
@@ -44,6 +55,7 @@ Misalnya, sebuah perusahaan teknologi sedang melakukan evaluasi kinerja karyawan
 - Menganalisis dampak peningkatan gaji terhadap anggaran perusahaan dan menentukan alokasi dana yang optimal untuk memenuhi kebutuhan penggajian tanpa mengorbankan stabilitas keuangan perusahaan.
 
 Dengan demikian, penggunaan model prediksi gaji dapat membantu perusahaan dalam mengambil keputusan yang lebih tepat dan strategis dalam pengelolaan sumber daya manusia mereka.
+
 
 ## Data Understanding
 
@@ -63,21 +75,38 @@ Dataset yang digunakan dalam proyek ini berisi informasi tentang gaji karyawan d
 
 6. **Salary (Gaji)**: Kolom ini menunjukkan gaji tahunan dari setiap karyawan dalam dolar Amerika Serikat (USD). Nilai-nilai dalam kolom ini bersifat numerik dan dapat bervariasi tergantung pada faktor-faktor seperti jabatan pekerjaan, tahun-tahun pengalaman, dan tingkat pendidikan.
 
-Data ini dapat memberikan wawasan yang berharga tentang hubungan antara faktor-faktor tertentu seperti usia, jenis kelamin, pendidikan, dan pengalaman kerja dengan besaran gaji. Analisis lebih lanjut tentang data ini akan membantu kita memahami pola-pola yang mungkin terjadi dan merancang model prediksi gaji yang lebih akurat.
+### Analisis
+
+Analisis dilakukan untuk memahami hubungan antara fitur-fitur dalam dataset dengan gaji. Visualisasi histogram distribusi gaji menunjukkan bahwa distribusi gaji cenderung condong ke kanan (right-skewed), dengan sebagian besar responden memiliki gaji di kisaran rendah hingga menengah.
+
+#### Visualisasi Analisis
+
+##### Gambar 1: Histogram Distribusi Gaji
+![Histogram Distribusi Gaji](https://github.com/mthayyibUnp/Salary-Prediction-Machine-Learning/assets/124302200/ac8a208b-0c18-4e67-bcac-de42e2dba3a7)
+
+Gambar 1 menunjukkan distribusi gaji responden dalam dataset. Sumbu x mewakili gaji, sedangkan sumbu y mewakili jumlah orang yang menerima gaji tersebut. Distribusi gaji cenderung condong ke kanan (right-skewed), dengan sebagian besar responden memiliki gaji di kisaran rendah hingga menengah. Perbedaan antara gaji rata-rata dan gaji median menunjukkan adanya sebagian responden dengan penghasilan jauh lebih tinggi dari rata-rata, yang dapat dipengaruhi oleh faktor-faktor seperti pendidikan, pengalaman kerja, dan lokasi.
+
+##### Gambar 2: Heatmap Korelasi
+![Heatmap Korelasi](https://github.com/mthayyibUnp/Salary-Prediction-Machine-Learning/assets/124302200/3f831465-c9e8-4433-bdd8-4d26cf49d8ea)
+
+Gambar 2 merupakan peta panas yang menampilkan korelasi antara variabel usia, masa kerja, dan gaji. Warna pada peta panas menunjukkan kekuatan korelasi antara variabel-variabel tersebut. Terdapat korelasi positif yang kuat antara usia dan gaji, serta antara masa kerja dan gaji. Artinya, semakin bertambah usia atau masa kerja seseorang, gaji cenderung meningkat. Namun, terdapat korelasi positif yang lebih lemah antara usia dan masa kerja.
+
 
 ## Data Preparation
 
-Pada tahap Data Preparation, dilakukan beberapa proses untuk mempersiapkan data agar siap digunakan dalam pembangunan model machine learning. Proses-proses tersebut antara lain:
+Pada tahap Data Preparation, langkah-langkah spesifik yang diambil mencakup beberapa teknik untuk mempersiapkan data secara optimal sebelum digunakan dalam pembangunan model machine learning. Beberapa langkah tersebut antara lain:
 
-1. **Penghapusan Baris dengan Nilai Null**: Dilakukan pemeriksaan terhadap dataset untuk menemukan baris-baris yang memiliki nilai null. Baris-baris tersebut kemudian dihapus dari dataset untuk memastikan kebersihan data yang digunakan dalam pemodelan.
+1. **Pemisahan Dataset**: Pertama-tama, dataset perlu dipisahkan menjadi dua bagian utama: data latih (train set) dan data uji (test set). Rasio pemisahan dataset yang umum digunakan adalah 80:20 atau 70:30. Misalnya, dari total data yang tersedia, 80% digunakan untuk melatih model (train set), sementara 20% sisanya digunakan untuk menguji kinerja model (test set).
 
-2. **Pemrosesan Fitur Kategorikal**: Fitur-fitur kategorikal seperti Jenis Kelamin, Tingkat Pendidikan, dan Jabatan Pekerjaan perlu diubah menjadi bentuk numerik agar dapat dimengerti oleh model machine learning. Teknik yang digunakan untuk ini adalah pengkodean one-hot, di mana setiap kategori pada fitur kategorikal akan diubah menjadi variabel biner.
+2. **Penghapusan Nilai Null**: Dilakukan pemeriksaan terhadap dataset untuk mendeteksi keberadaan nilai null atau missing values. Jika ditemukan, langkah selanjutnya adalah memutuskan cara penanganannya. Salah satu pendekatan yang umum adalah menghapus baris atau kolom yang mengandung nilai null tersebut. Misalnya, jika terdapat kolom yang memiliki sebagian besar nilai null dan tidak krusial untuk analisis, kolom tersebut dapat dihapus secara keseluruhan.
 
-3. **Pemisahan Dataset**: Dataset dibagi menjadi dua bagian, yaitu data latih (train set) dan data uji (test set). Data latih digunakan untuk melatih model, sementara data uji digunakan untuk menguji kinerja model yang telah dilatih.
+3. **Pemrosesan Fitur Kategorikal**: Fitur-fitur kategorikal perlu diubah menjadi bentuk numerik agar dapat dimengerti oleh model machine learning. Teknik yang umum digunakan adalah pengkodean one-hot (one-hot encoding). Dalam teknik ini, setiap kategori pada fitur kategorikal diubah menjadi variabel biner, di mana nilai 1 menunjukkan keberadaan kategori tersebut dan nilai 0 menunjukkan sebaliknya.
 
-4. **Skalasi Fitur Numerik**: Dilakukan skalasi pada fitur-fitur numerik agar memiliki rentang nilai yang serupa. Hal ini diperlukan agar tidak ada fitur yang mendominasi yang lain dalam proses pelatihan model.
+4. **Skalasi Fitur Numerik**: Fitur-fitur numerik mungkin memiliki rentang nilai yang berbeda-beda. Untuk memastikan bahwa tidak ada fitur yang mendominasi yang lain, dilakukan proses skalasi. Salah satu metode yang umum digunakan adalah normalisasi. Dalam normalisasi, nilai setiap fitur dikurangi dengan rata-rata fitur dan dibagi dengan standar deviasi fitur.
 
-Proses Data Preparation ini bertujuan untuk menyelaraskan data dengan kebutuhan pemodelan dan memastikan bahwa data yang digunakan untuk melatih dan menguji model bersih, terstruktur, dan siap digunakan. Dengan melakukan Data Preparation yang baik, diharapkan kinerja model machine learning yang dibangun dapat dioptimalkan dan memberikan hasil yang lebih baik.
+5. **Penanganan Ketidakseimbangan Kelas (Jika Diperlukan)**: Jika dataset memiliki ketidakseimbangan dalam distribusi kelas, langkah-langkah khusus mungkin diperlukan untuk menangani masalah ini. Misalnya, untuk masalah klasifikasi biner dengan kelas minoritas, teknik seperti oversampling (penambahan duplikat sampel dari kelas minoritas) atau undersampling (pengurangan sampel dari kelas mayoritas) dapat diterapkan.
+
+Dengan menerapkan langkah-langkah di atas dengan benar, data akan siap digunakan untuk melatih model machine learning dengan kinerja yang optimal. Langkah-langkah tersebut membantu memastikan bahwa data yang digunakan bersih, terstruktur, dan siap digunakan untuk pembangunan model yang akurat dan dapat diandalkan.
 
 
 ## Modelling
@@ -101,31 +130,13 @@ Dalam tahap Modelling, dilakukan pembangunan model machine learning untuk menyel
 Dengan menggunakan Random Forest Regressor dan melakukan proses pemodelan dengan tepat, diharapkan model yang dihasilkan mampu memberikan prediksi gaji yang akurat dan dapat digunakan untuk mendukung pengambilan keputusan yang lebih baik dalam konteks analisis gaji.
 
 
-## Analisis
-
-Analisis dilakukan untuk memahami hubungan antara fitur-fitur dalam dataset dengan gaji. Visualisasi histogram distribusi gaji menunjukkan bahwa distribusi gaji cenderung condong ke kanan (right-skewed), dengan sebagian besar responden memiliki gaji di kisaran rendah hingga menengah.
-
-### Visualisasi Analisis
-
-#### Gambar 1: Histogram Distribusi Gaji
-![Untitled](https://github.com/mthayyibUnp/Salary-Prediction-Machine-Learning/assets/124302200/ac8a208b-0c18-4e67-bcac-de42e2dba3a7)
-
-
-Gambar 1 menunjukkan distribusi gaji responden dalam dataset. Sumbu x mewakili gaji, sedangkan sumbu y mewakili jumlah orang yang menerima gaji tersebut. Distribusi gaji cenderung condong ke kanan (right-skewed), dengan sebagian besar responden memiliki gaji di kisaran rendah hingga menengah. Perbedaan antara gaji rata-rata dan gaji median menunjukkan adanya sebagian responden dengan penghasilan jauh lebih tinggi dari rata-rata, yang dapat dipengaruhi oleh faktor-faktor seperti pendidikan, pengalaman kerja, dan lokasi.
-
-#### Gambar 2: Heatmap Korelasi
-![Untitled](https://github.com/mthayyibUnp/Salary-Prediction-Machine-Learning/assets/124302200/3f831465-c9e8-4433-bdd8-4d26cf49d8ea)
-
-
-Gambar 2 merupakan peta panas yang menampilkan korelasi antara variabel usia, masa kerja, dan gaji. Warna pada peta panas menunjukkan kekuatan korelasi antara variabel-variabel tersebut. Terdapat korelasi positif yang kuat antara usia dan gaji, serta antara masa kerja dan gaji. Artinya, semakin bertambah usia atau masa kerja seseorang, gaji cenderung meningkat. Namun, terdapat korelasi positif yang lebih lemah antara usia dan masa kerja.
-
 ## Evaluasi
 
 Dalam proses evaluasi model machine learning, metrik evaluasi yang dipilih sangat penting untuk mengukur kinerja model. Dalam kasus ini, metrik evaluasi yang digunakan adalah Mean Squared Error (MSE), yang mengukur rata-rata dari kuadrat perbedaan antara nilai sebenarnya (y_test) dan nilai prediksi (y_pred). 
 
 Rumus untuk MSE adalah sebagai berikut:
 
-<div><img src="https://user-images.githubusercontent.com/107544829/188412654-f5dc0ae1-901b-470e-aae5-1f6b5fb68b4d.png" width="300"/></div>
+$$MSE=\frac{1}{n} \sum_{i=1}^n (y_i - \hat{y_i})^2$$
 
 ### Evaluasi Menggunakan Mean Squared Error (MSE)
 
