@@ -139,11 +139,11 @@ Selain MSE, terdapat juga metrik evaluasi lain yang bisa dipertimbangkan seperti
 
 ### Visualisasi Evaluasi
 
-#### Scatter Plot Actual vs Predicted Salary
+#### Gambar 3 - Scatter Plot Actual vs Predicted Salary
 ![Untitled](https://github.com/mthayyibUnp/Salary-Prediction-Machine-Learning/assets/124302200/04aa9a04-7b70-4158-9b30-4b8a23deb181)
 
 
-Ada lebih banyak titik data di sudut kiri bawah grafik. Artinya model tersebut cenderung meremehkan gaji yang tinggi. Misalnya, jika gaji sebenarnya seseorang adalah $200.000, model mungkin memperkirakan gajinya hanya $150.000.  
+Pada gambar 3, ada lebih banyak titik data di sudut kiri bawah grafik. Artinya model tersebut cenderung meremehkan gaji yang tinggi. Misalnya, jika gaji sebenarnya seseorang adalah $200.000, model mungkin memperkirakan gajinya hanya $150.000.  
 Ada lebih sedikit titik data yang jauh dari garis diagonal. Artinya, model ini lebih akurat dalam memprediksi gaji di kisaran rata-rata dibandingkan dengan gaji yang sangat tinggi atau rendah.  
   
 Secara keseluruhan, plot sebar menunjukkan bahwa model tersebut dapat digunakan untuk memperkirakan gaji, namun penting untuk diingat bahwa prediksi tersebut mungkin tidak sempurna.
